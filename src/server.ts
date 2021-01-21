@@ -8,6 +8,7 @@ dotenv.config();
 
 // routes
 const authRoute = require('./Routes/auth');
+const homeRoute = require('./Routes/home');
 
 mongoose.connect(process.env.DB_CONNECT,
     {useNewUrlParser : true, useUnifiedTopology:true},
@@ -22,6 +23,7 @@ app.use(express.json());
 //Routes 
 
 app.use('/api/user', authRoute);
+app.use('/api', homeRoute);
 
 app.listen(6969, () => {
     console.log('Ayy Ayy Captain');
